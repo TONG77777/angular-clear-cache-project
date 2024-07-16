@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpClient, HttpBackend, HttpHeaders } from '@angular/common/http';
 
 import { Configuration } from './configuration';
 import { environment } from 'src/environments/environment';
@@ -18,15 +18,17 @@ export class ConfigurationLoader {
   }
 
   loadConfiguration(): Promise<any> {
+    const headers = new HttpHeaders({
+      'Cache-Control': 'no-cache',
+    });
     return this.http
-      .get(this.CONFIGURATION_URL)
+      .get(this.CONFIGURATION_URL, { headers })
       .toPromise()
       .then((configuration: Configuration) => {
         this.configuration = configuration;
         return configuration;
       });
   }
-
   getConfiguration(): Configuration {
     return this.configuration;
   }

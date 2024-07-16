@@ -272,8 +272,11 @@ class ConfigurationLoader {
         this.http = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"](handler);
     }
     loadConfiguration() {
+        const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Cache-Control': 'no-cache',
+        });
         return this.http
-            .get(this.CONFIGURATION_URL)
+            .get(this.CONFIGURATION_URL, { headers })
             .toPromise()
             .then((configuration) => {
             this.configuration = configuration;

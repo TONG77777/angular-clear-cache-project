@@ -531,7 +531,12 @@ function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Can
         value: function loadConfiguration() {
           var _this = this;
 
-          return this.http.get(this.CONFIGURATION_URL).toPromise().then(function (configuration) {
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+            'Cache-Control': 'no-cache'
+          });
+          return this.http.get(this.CONFIGURATION_URL, {
+            headers: headers
+          }).toPromise().then(function (configuration) {
             _this.configuration = configuration;
             return configuration;
           });

@@ -1,7 +1,7 @@
 {
   "API_VERSION": 1,
   "VERSION": {
-    "PROD": "6.6",
+    "PROD": "6.7",
     "ABC": "1.2.3",
     "DEF": "4.5.6"
   }
