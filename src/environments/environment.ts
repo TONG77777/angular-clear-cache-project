@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  configurationUrl:
+    'https://tong77777.github.io/angular-clear-cache-project/assets/configuration/configuration.json',
 };
 
 /*
